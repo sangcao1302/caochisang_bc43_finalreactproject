@@ -132,9 +132,9 @@ const productReducer = createSlice({
     orderProduct:(state,action)=>{
       state.postOrder=action.payload
     },
-    getProfileData:(state,actions)=>{
-      state.token=actions.payload
-    }
+    // getProfileData:(state,actions)=>{
+    //   state.token=actions.payload
+    // }
   
 
   }
@@ -174,7 +174,7 @@ export const getLogin=(userLogin)=>{
       const action=login(res.data.content)
       dispatch(action)
    
-      history.push('/profile');
+      history.push('/home');
     }catch(err){
     
       const action=loginValid(err.response?.data.message)
@@ -213,16 +213,16 @@ export const postOrderProduct=(order)=>{
   }
 }
 
-export const postProfile=(data)=>{
-  return async(dispatch)=>{
-      const res=await httpShoe.post(`/api/Users/getProfile`,{},{ headers : {
+// export const postProfile=(data)=>{
+//   return async(dispatch)=>{
+//       const res=await httpShoe.post(`/api/Users/getProfile`,{},{ headers : {
    
-        "Authorization": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJjYW9jaGlzYW5nMTMwMkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJWSUVXX1BST0ZJTEUiLCJuYmYiOjE2ODY1ODQ4NTUsImV4cCI6MTY4NjU4ODQ1NX0.oBtOFmJKVuQlQ1h5bPQrAbthELa4PkodfysP1x310jM"
-      }})
-      const action=getProfileData(res.data)
-      dispatch(action) 
-  }
-}
+//         "Authorization": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJjYW9jaGlzYW5nMTMwMkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJWSUVXX1BST0ZJTEUiLCJuYmYiOjE2ODY1ODQ4NTUsImV4cCI6MTY4NjU4ODQ1NX0.oBtOFmJKVuQlQ1h5bPQrAbthELa4PkodfysP1x310jM"
+//       }})
+//       const action=getProfileData(res.data)
+//       dispatch(action) 
+//   }
+// }
 // export const postProfileApi=()=>{
 //   return async(dispatch)=>{
     

@@ -18,8 +18,8 @@ export default function Login() {
     dispatch(action)
   
   
-    const actions=postProfile(token)
-    dispatch(actions)
+    // const actions=postProfile(token)
+    // dispatch(actions)
   }
   const handleValue=(e)=>{
     let {value,id}=e.target
