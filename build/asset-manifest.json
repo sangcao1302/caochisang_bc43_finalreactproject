@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.js": "/shopproject/static/js/main.41f28f26.js",
-    "index.html": "/shopproject/index.html",
-    "main.41f28f26.js.map": "/shopproject/static/js/main.41f28f26.js.map"
+    "main.js": "/caochisang_bc43_finalreactproject/static/js/main.d1b280ad.js",
+    "index.html": "/caochisang_bc43_finalreactproject/index.html",
+    "main.d1b280ad.js.map": "/caochisang_bc43_finalreactproject/static/js/main.d1b280ad.js.map"
   },
   "entrypoints": [
-    "static/js/main.41f28f26.js"
+    "static/js/main.d1b280ad.js"
   ]
 }
