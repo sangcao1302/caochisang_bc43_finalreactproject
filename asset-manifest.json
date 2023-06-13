@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.js": "/caochisang_bc43_finalreactproject/static/js/main.d1b280ad.js",
-    "index.html": "/caochisang_bc43_finalreactproject/index.html",
-    "main.d1b280ad.js.map": "/caochisang_bc43_finalreactproject/static/js/main.d1b280ad.js.map"
+    "main.js": "/static/js/main.d1b280ad.js",
+    "index.html": "/index.html",
+    "main.d1b280ad.js.map": "/static/js/main.d1b280ad.js.map"
   },
   "entrypoints": [
     "static/js/main.d1b280ad.js"
