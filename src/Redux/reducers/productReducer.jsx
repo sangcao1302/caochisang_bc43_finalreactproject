@@ -25,7 +25,8 @@ const initialState = {
     prodSearch:[],
     postOrder:"",
     getProfile:"",
-    token:""
+    token:"",
+    quantity:""
 }
 
 const productReducer = createSlice({
@@ -63,7 +64,6 @@ const productReducer = createSlice({
   },
   login:(state,action)=>{
     state.arrLogin=action.payload
-    state.token=action.payload
   },
   loginValid:(state,action)=>{
     state.validLogin=action.payload
@@ -132,16 +132,18 @@ const productReducer = createSlice({
     orderProduct:(state,action)=>{
       state.postOrder=action.payload
     },
-    // getProfileData:(state,actions)=>{
-    //   state.token=actions.payload
+    getProfileData:(state,actions)=>{
+      state.token=actions.payload
+    },
+    // getQuantity:(state,action)=>{
+    //   state.quantity=action.payload
     // }
-  
 
   }
  
 });
 
-export const {getProductsAction, getProductsActionId,getProductCart,getProductQuantity,delProduct,login,loginValid,loginDetail,register,registerSucess,registerValid,registerFocus,validRegister,getProductSearch,orderProduct,registerDatas,getProfileData,arrLogin} = productReducer.actions
+export const {getProductsAction, getProductsActionId,getProductCart,getProductQuantity,delProduct,login,loginValid,loginDetail,register,registerSucess,registerValid,registerFocus,validRegister,getProductSearch,orderProduct,registerDatas,getProfileData,arrLogin,getQuantity} = productReducer.actions
 
 export default productReducer.reducer
 
@@ -213,16 +215,23 @@ export const postOrderProduct=(order)=>{
   }
 }
 
-// export const postProfile=(data)=>{
-//   return async(dispatch)=>{
-//       const res=await httpShoe.post(`/api/Users/getProfile`,{},{ headers : {
+export const postProfile=(data)=>{
+  return async(dispatch)=>{
+    
+     
+      
+      const res=await httpShoe.post(`/api/Users/getProfile`,{},{ headers :{
+        "Authorization":`Bearer ${data}`
+      }
    
-//         "Authorization": "Bearer eyJhbGciOiJodHRwOi8vd3d3LnczLm9yZy8yMDAxLzA0L3htbGRzaWctbW9yZSNobWFjLXNoYTI1NiIsInR5cCI6IkpXVCJ9.eyJodHRwOi8vc2NoZW1hcy54bWxzb2FwLm9yZy93cy8yMDA1LzA1L2lkZW50aXR5L2NsYWltcy9lbWFpbGFkZHJlc3MiOiJjYW9jaGlzYW5nMTMwMkBnbWFpbC5jb20iLCJodHRwOi8vc2NoZW1hcy5taWNyb3NvZnQuY29tL3dzLzIwMDgvMDYvaWRlbnRpdHkvY2xhaW1zL3JvbGUiOiJWSUVXX1BST0ZJTEUiLCJuYmYiOjE2ODY1ODQ4NTUsImV4cCI6MTY4NjU4ODQ1NX0.oBtOFmJKVuQlQ1h5bPQrAbthELa4PkodfysP1x310jM"
-//       }})
-//       const action=getProfileData(res.data)
-//       dispatch(action) 
-//   }
-// }
+       
+      })
+      const action=getProfileData(res.data.content)
+      dispatch(action) 
+ 
+    }
+    
+}
 // export const postProfileApi=()=>{
 //   return async(dispatch)=>{
     

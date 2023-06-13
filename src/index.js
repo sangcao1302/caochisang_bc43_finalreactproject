@@ -46,6 +46,8 @@ root.render(
               <Route path=":product" element={<Search></Search>}></Route>
           </Route>
           <Route path="profile" element={<Profile></Profile>} ></Route>
+          <Route path="login" element={<Login></Login>} ></Route>
+          
         </Route>
       </Routes>
     </HistoryRouter>

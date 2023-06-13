@@ -66,8 +66,13 @@ export default function Header() {
                   </NavLink>
                 </li>
                 <li className="nav-item">
-                  <NavLink className="nav-link" href="#">
+                  <NavLink className="nav-link" to={`/register`}>
                     Register
+                  </NavLink>
+                </li>
+                <li className="nav-item">
+                  <NavLink className="nav-link" to={`/profile`}>
+                    Profile
                   </NavLink>
                 </li>
               </ul>

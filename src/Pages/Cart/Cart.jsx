@@ -1,10 +1,11 @@
 import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { delProduct, postOrderProduct } from "../../Redux/reducers/productReducer";
+import { delProduct, getQuantity, postOrderProduct } from "../../Redux/reducers/productReducer";
 
 export default function Cart() {
   const { arrProductCart, count ,arrLogin,arrProductid,postOrder} = useSelector((state) => state.productReducer);
   console.log(postOrder)
+  console.log(arrLogin)
   const dispatch=useDispatch()
   const [order,setOrder]=useState({
     orderDetail: [
@@ -29,19 +30,24 @@ const handleCountDown=()=>{
     const action=delProduct(arrProductCart)
     dispatch(action)
   }
-  // const handleOrder=()=>{
-  //   order.orderDetail.map((item)=>{
-  //     item.productId=arrProductid.id
-  //     item.quantity=count
-  //   })
-  //   order.email=arrLogin.content.email
-  //   const action=postOrderProduct(order)
+  const handleOrder=()=>{
+    order.orderDetail.map((item)=>{
+      item.productId=arrProductid.id
+      item.quantity=count
+    })
+    order.email=arrLogin.email
+    const action=postOrderProduct(order)
+    dispatch(action)
+    console.log(order)
+    console.log(arrLogin)
+  }
+  // const getQuantityProd=()=>{
+  //   const action=getQuantity(order)
   //   dispatch(action)
-  //   console.log(order)
-  //   console.log(arrLogin)
   // }
   useEffect(()=>{
-    // handleOrder()
+    handleOrder()
+    // getQuantityProd()
   },[])
   return (
     <div>
@@ -85,7 +91,7 @@ const handleCountDown=()=>{
          
         </table>
           <div className="order d-flex justify-content-end">
-              <button type="button" className="btn btn-danger mx-5" >Submit Order</button>
+              <button type="button" className="btn btn-danger mx-5" onClick={handleOrder}>Submit Order</button>
           </div>
       </div>
     </div>

@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { NavLink, Navigate } from "react-router-dom";
 import { getLogin, loginDetail, postProfile } from "../../Redux/reducers/productReducer";
 
 export default function Login() {
-  const{arrLogin,validLogin,validDetail,token}=useSelector(state=>state.productReducer)
-  console.log(token)
+  const{arrLogin,validLogin,validDetail}=useSelector(state=>state.productReducer)
+
   console.log(validLogin)
   const [user,setUser]=useState({email:"",password:""})
   const [valid,setValid]=useState({value:"",id:""})
@@ -18,9 +18,10 @@ export default function Login() {
     dispatch(action)
   
   
-    // const actions=postProfile(token)
-    // dispatch(actions)
+   
   }
+
+
   const handleValue=(e)=>{
     let {value,id}=e.target
     user[id]=value
